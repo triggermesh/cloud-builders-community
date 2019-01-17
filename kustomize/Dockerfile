@@ -1,5 +1,7 @@
 FROM gcr.io/cloud-builders/kubectl
 
-COPY kustomize.bash /builder/kustomize.bash
+COPY kustomize /builder/google-cloud-sdk/bin
 
-ENTRYPOINT ["/builder/kustomize.bash"]
+RUN chmod +x /builder/google-cloud-sdk/bin/kustomize
+
+ENTRYPOINT ["kustomize"]
